@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Investigación Electoral · Guanajuato 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base-950:#14161B;
+    --base-900:#1B1E25;
+    --base-800:#23272F;
+    --base-700:#2C313B;
+    --line:#343A46;
+    --line-soft:#262B34;
+    --text-hi:#ECEDEF;
+    --text-mid:#9AA1AC;
+    --text-low:#5B6170;
+    --cyan:#43D6CC;
+    --cyan-dim:#2B7C77;
+    --coral:#FF7A63;
+    --coral-dim:#9C4D40;
+    --amber:#E3A23F;
+    --amber-dim:#8C6526;
+    --radius:3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--base-950);
+    color:var(--text-hi);
+    font-family:"Hanken Grotesk", system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:"Space Grotesk", sans-serif;
+    font-weight:600;
+    margin:0;
+    color:var(--text-hi);
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:"JetBrains Mono", monospace;
+    letter-spacing:0.02em;
+  }
+
+  a{color:var(--cyan);}
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:2px;
+  }
+
+  /* ---------- shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    min-height:100vh;
+  }
+
+  .rail{
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    background:var(--base-900);
+    border-right:1px solid var(--line);
+    padding:26px 18px 36px;
+    scrollbar-width:thin;
+  }
+  .rail::-webkit-scrollbar{width:6px;}
+  .rail::-webkit-scrollbar-thumb{background:var(--line);}
+
+  .brand{
+    margin-bottom:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand .mark{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-bottom:10px;
+  }
+  .brand .mark .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 0 3px rgba(67,214,204,0.12);
+  }
+  .brand .mark span.mono{font-size:10.5px; color:var(--text-low); text-transform:uppercase; letter-spacing:0.08em;}
+  .brand .title{
+    font-size:19px;
+    line-height:1.25;
+    color:var(--text-hi);
+  }
+  .brand .subtitle{
+    font-family:"Hanken Grotesk", sans-serif;
+    font-size:13px;
+    color:var(--text-mid);
+    margin-top:4px;
+  }
+
+  .rail-search input{
+    width:100%;
+    background:var(--base-800);
+    border:1px solid var(--line);
+    color:var(--text-hi);
+    padding:9px 10px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:12.5px;
+    border-radius:var(--radius);
+    margin-bottom:18px;
+  }
+  .rail-search input::placeholder{color:var(--text-low);}
+
+  .filter-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    color:var(--text-low);
+    margin-bottom:8px;
+    letter-spacing:0.07em;
+  }
+
+  .pills{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px;}
+  .pill{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    padding:5px 9px;
+    border:1px solid var(--line);
+    color:var(--text-mid);
+    background:transparent;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .pill:hover{border-color:var(--cyan); color:var(--text-hi);}
+  .pill.active{
+    background:var(--cyan);
+    border-color:var(--cyan);
+    color:var(--base-950);
+    font-weight:600;
+  }
+
+  nav.toc{display:flex; flex-direction:column; gap:1px;}
+  nav.toc a{
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+    color:var(--text-mid);
+    text-decoration:none;
+    font-size:13.5px;
+    padding:8px 9px;
+    border-radius:var(--radius);
+    border-left:2px solid transparent;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.toc a .n{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    color:var(--text-low);
+    min-width:18px;
+  }
+  nav.toc a:hover{background:var(--base-800); color:var(--text-hi);}
+  nav.toc a[aria-current="true"]{
+    background:var(--base-800);
+    color:var(--cyan);
+    border-left-color:var(--cyan);
+  }
+  nav.toc a[aria-current="true"] .n{color:var(--cyan);}
+
+  .rail-foot{
+    margin-top:22px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    color:var(--text-low);
+    line-height:1.7;
+  }
+
+  .mobile-bar{display:none;}
+
+  /* ---------- main ---------- */
+  main{padding:0 0 70px;}
+
+  .hero{
+    padding:58px 52px 36px;
+    border-bottom:1px solid var(--line);
+    background:var(--base-900);
+  }
+  .hero .eyebrow{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    color:var(--cyan);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4vw, 48px);
+    line-height:1.07;
+    max-width:20ch;
+  }
+  .hero h1 span{color:var(--coral);}
+  .hero p.lede{
+    max-width:62ch;
+    margin-top:16px;
+    font-size:17px;
+    color:var(--text-mid);
+  }
+
+  .spectrum{
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    height:34px;
+    margin-top:30px;
+  }
+  .spectrum i{
+    width:4px;
+    background:var(--line);
+    border-radius:1px;
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  .spectrum i:nth-child(odd){background:var(--cyan-dim);}
+  .spectrum i:nth-child(3n){background:var(--coral-dim);}
+  @keyframes pulse{
+    0%,100%{transform:scaleY(0.35);}
+    50%{transform:scaleY(1);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .spectrum i{animation:none; transform:scaleY(0.55);}
+  }
+
+  section{
+    padding:48px 52px;
+    border-bottom:1px solid var(--line);
+    scroll-margin-top:14px;
+  }
+  section:last-of-type{border-bottom:none;}
+
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px;}
+  .sec-head .code{
+    font-family:"JetBrains Mono", monospace;
+    font-size:13px;
+    color:var(--cyan);
+    border:1px solid var(--cyan-dim);
+    padding:2px 7px;
+    border-radius:var(--radius);
+  }
+  .sec-head h2{font-size:26px;}
+  .sec-sub{color:var(--text-mid); max-width:74ch; margin-top:10px; font-size:15.5px;}
+
+  /* methodology layers */
+  .layers{margin-top:28px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .layer{background:var(--base-900); padding:20px 18px;}
+  .layer .lnum{font-family:"JetBrains Mono", monospace; font-size:11px; color:var(--coral); display:block; margin-bottom:10px;}
+  .layer h3{font-size:16.5px; margin-bottom:8px;}
+  .layer p{font-size:14px; color:var(--text-mid); margin:0;}
+
+  /* fichas */
+  .toolbar-local{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:12px; margin-top:22px; margin-bottom:18px;
+  }
+  .density-toggle{display:flex; gap:6px; font-family:"JetBrains Mono", monospace; font-size:11.5px;}
+  .density-toggle button{
+    background:var(--base-800);
+    border:1px solid var(--line);
+    color:var(--text-mid);
+    padding:7px 12px;
+    border-radius:var(--radius);
+    cursor:pointer;
+  }
+  .density-toggle button:hover{border-color:var(--cyan);}
+  .density-toggle button.active{
+    background:var(--cyan);
+    border-color:var(--cyan);
+    color:var(--base-950);
+    font-weight:600;
+  }
+  .count-readout{font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--text-low);}
+
+  .ficha-grid{display:flex; flex-direction:column; gap:10px;}
+
+  details.ficha{
+    border:1px solid var(--line);
+    background:var(--base-900);
+    border-radius:var(--radius);
+  }
+  details.ficha summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 20px;
+    display:grid;
+    grid-template-columns:auto 1fr auto auto;
+    gap:18px;
+    align-items:start;
+  }
+  details.ficha summary::-webkit-details-marker{display:none;}
+
+  .f-code{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    color:var(--cyan);
+    border:1px solid var(--cyan-dim);
+    padding:3px 8px;
+    border-radius:var(--radius);
+    white-space:nowrap;
+    height:fit-content;
+  }
+  .f-title-wrap h4{font-size:18px; margin-bottom:4px;}
+  .f-title-wrap .f-enfoque{font-size:13.5px; color:var(--text-mid);}
+
+  .meters{display:flex; gap:22px; margin-top:12px;}
+  .meter .meter-label{font-size:9.5px; color:var(--text-low); display:block; margin-bottom:5px; letter-spacing:0.08em;}
+  .meter-bars{display:flex; gap:3px;}
+  .meter-bars i{width:7px; height:13px; background:var(--line); border-radius:1px; display:block;}
+  .meter-bars i.lit{background:var(--cyan);}
+  .meter-bars.demanda i.lit{background:var(--coral);}
+
+  .f-tags{display:flex; gap:6px; flex-wrap:wrap; justify-self:end; max-width:160px;}
+  .tag{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    padding:3px 7px;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    color:var(--text-mid);
+    white-space:nowrap;
+  }
+  .chevron{font-family:"JetBrains Mono", monospace; color:var(--text-low); font-size:14px; transition:transform .15s ease;}
+  details.ficha[open] .chevron{transform:rotate(90deg); color:var(--cyan);}
+
+  .f-body{
+    padding:0 20px 22px 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    border-top:1px solid var(--line);
+    margin-top:2px;
+    padding-top:18px;
+  }
+  .f-block h5{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--coral);
+    margin-bottom:7px;
+  }
+  .f-block p{font-size:14.5px; color:var(--text-mid); margin:0 0 6px;}
+  .f-block.full{grid-column:1 / -1;}
+  .f-risk{border-left:2px solid var(--amber-dim); padding-left:12px;}
+
+  body.compacto details.ficha[data-forced="0"] .f-body{display:none;}
+  .ficha.hidden-by-filter{display:none;}
+
+  /* table */
+  .ledger{margin-top:24px; width:100%; border-collapse:collapse; font-size:14.5px;}
+  .ledger th, .ledger td{border:1px solid var(--line); padding:12px 14px; text-align:left; vertical-align:top;}
+  .ledger thead th{
+    background:var(--base-800);
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    color:var(--cyan);
+    letter-spacing:0.04em;
+  }
+  .ledger tbody td:first-child{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12.5px;
+    color:var(--text-low);
+    width:18%;
+  }
+  .ledger tbody td{color:var(--text-mid);}
+  .ledger tbody tr:nth-child(odd){background:var(--base-900);}
+
+  /* legal */
+  .legal-list{margin-top:22px; display:flex; flex-direction:column; gap:10px;}
+  details.legal{border:1px solid var(--line); background:var(--base-900); border-radius:var(--radius);}
+  details.legal summary{
+    cursor:pointer; list-style:none; padding:16px 18px;
+    display:flex; justify-content:space-between; align-items:center; gap:14px;
+  }
+  details.legal summary::-webkit-details-marker{display:none;}
+  details.legal summary h4{font-size:16px;}
+  details.legal summary .tag{flex-shrink:0;}
+  details.legal .legal-body{
+    padding:0 18px 18px; border-top:1px solid var(--line); padding-top:14px;
+    font-size:14.5px; color:var(--text-mid);
+  }
+  details.legal .legal-body ul{padding-left:20px; margin:8px 0;}
+  details.legal .legal-body li{margin-bottom:6px;}
+  .legal-caveat{
+    margin-top:20px; font-size:13px; color:var(--text-low);
+    border-top:1px solid var(--line); padding-top:14px; font-family:"JetBrains Mono", monospace;
+  }
+
+  /* route */
+  .route{margin-top:28px; display:flex; flex-direction:column; gap:0;}
+  .route-step{display:grid; grid-template-columns:44px 1fr; gap:18px; padding-bottom:24px; position:relative;}
+  .route-step:not(:last-child)::before{
+    content:""; position:absolute; left:21px; top:36px; bottom:-2px; width:1px; background:var(--line);
+  }
+  .route-num{
+    width:42px; height:42px; border:1px solid var(--cyan); color:var(--cyan);
+    border-radius:var(--radius); display:flex; align-items:center; justify-content:center;
+    font-family:"JetBrains Mono", monospace; font-size:15px; flex-shrink:0;
+  }
+  .route-step h4{font-size:17px; margin-bottom:6px;}
+  .route-step .tag{margin-left:8px;}
+  .route-step p{color:var(--text-mid); font-size:14.5px; margin:0; max-width:64ch;}
+
+  /* resources */
+  .resources{margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .resource{background:var(--base-900); padding:16px 17px;}
+  .resource .rname{font-family:"JetBrains Mono", monospace; color:var(--cyan); font-size:13.5px; display:block; margin-bottom:6px;}
+  .resource p{font-size:13.5px; color:var(--text-mid); margin:0;}
+
+  .mobile-summary-toggle{
+    cursor:pointer; color:var(--text-mid); font-size:12px; margin-top:10px;
+  }
+  .no-results{display:none; margin-top:14px;}
+  .no-results.is-visible{display:block;}
+
+  footer{padding:32px 52px 46px; font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--text-low);}
+
+  @media (max-width: 900px){
+    .shell{grid-template-columns:1fr;}
+    .rail{display:none;}
+    .mobile-bar{
+      display:block; position:sticky; top:0; z-index:5;
+      background:var(--base-900); border-bottom:1px solid var(--line); padding:14px 18px;
+    }
+    .mobile-bar .title{font-family:"Space Grotesk"; font-size:17px;}
+    .mobile-bar input{
+      width:100%; margin-top:10px; background:var(--base-800); border:1px solid var(--line);
+      color:var(--text-hi); padding:9px 10px; font-family:"JetBrains Mono", monospace;
+      font-size:12.5px; border-radius:var(--radius);
+    }
+    .mobile-bar .pills{margin-top:10px; margin-bottom:0;}
+    .mobile-bar details{margin-top:10px;}
+    .hero{padding:38px 20px 26px;}
+    section{padding:34px 20px;}
+    .f-body{grid-template-columns:1fr;}
+    .layers{grid-template-columns:1fr;}
+    .ledger{font-size:13px;}
+    details.ficha summary{grid-template-columns:auto 1fr; row-gap:10px;}
+    .f-tags{grid-column:1/-1; justify-self:start; max-width:none;}
+    .chevron{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="rail">
+    <div class="brand">
+      <span class="mark"><span class="dot"></span><span class="mono">Documento interno</span></span>
+      <div class="title">Catálogo de Investigación Electoral</div>
+      <div class="subtitle">Guanajuato · ciclo 2027</div>
+    </div>
+
+    <div class="rail-search">
+      <input type="text" id="searchInput" placeholder="Buscar tema, fuente, comprador…" aria-label="Buscar en el catálogo">
+    </div>
+
+    <div class="filter-label">Filtrar por comprador</div>
+    <div class="pills" id="filterPills">
+      <button class="pill active" data-filter="todos">Todos</button>
+      <button class="pill" data-filter="partido">Partido</button>
+      <button class="pill" data-filter="ine">INE / OPLE</button>
+      <button class="pill" data-filter="institucional">Institucional</button>
+    </div>
+
+    <nav class="toc" id="tocNav">
+      <a href="#metodo"><span class="n mono">01</span>Marco metodológico</a>
+      <a href="#temas"><span class="n mono">02</span>Líneas de investigación</a>
+      <a href="#comparativo"><span class="n mono">03</span>INE vs. Partidos</a>
+      <a href="#legal"><span class="n mono">04</span>Marco legal y condiciones</a>
+      <a href="#ruta"><span class="n mono">05</span>Ruta crítica</a>
+      <a href="#recursos"><span class="n mono">06</span>Recursos y herramientas</a>
+    </nav>
+
+    <div class="rail-foot">
+      Material de trabajo personal<br>
+      Actualizado · jun 2026
+    </div>
+  </aside>
+
+  <div class="mobile-bar">
+    <span class="title">Catálogo · GTO 2027</span>
+    <input type="text" id="searchInputMobile" placeholder="Buscar tema, fuente, comprador…" aria-label="Buscar en el catálogo">
+    <div class="pills" id="filterPillsMobile">
+      <button class="pill active" data-filter="todos">Todos</button>
+      <button class="pill" data-filter="partido">Partido</button>
+      <button class="pill" data-filter="ine">INE / OPLE</button>
+      <button class="pill" data-filter="institucional">Institucional</button>
+    </div>
+    <details>
+      <summary class="mono mobile-summary-toggle">Índice de secciones ▾</summary>
+      <nav class="toc">
+        <a href="#metodo"><span class="n mono">01</span>Marco metodológico</a>
+        <a href="#temas"><span class="n mono">02</span>Líneas de investigación</a>
+        <a href="#comparativo"><span class="n mono">03</span>INE vs. Partidos</a>
+        <a href="#legal"><span class="n mono">04</span>Marco legal y condiciones</a>
+        <a href="#ruta"><span class="n mono">05</span>Ruta crítica</a>
+        <a href="#recursos"><span class="n mono">06</span>Recursos y herramientas</a>
+      </nav>
+    </details>
+  </div>
+
+  <main>
+
+    <div class="hero">
+      <div class="eyebrow mono">Consultor independiente · Lic. en Administración Pública</div>
+      <h1>Diagnóstico territorial para <span>campañas y política pública</span></h1>
+      <p class="lede">Catálogo de líneas de investigación, metodología de bajo costo y condiciones legales a verificar antes de vender estudios a partidos políticos, al INE/OPLE, o a instancias municipales en Guanajuato, de cara al proceso electoral 2027.</p>
+      <div class="spectrum" aria-hidden="true">
+        <i style="height:40%; animation-delay:0s;"></i><i style="height:70%; animation-delay:.1s;"></i><i style="height:30%; animation-delay:.2s;"></i><i style="height:90%; animation-delay:.3s;"></i><i style="height:55%; animation-delay:.4s;"></i><i style="height:25%; animation-delay:.5s;"></i><i style="height:80%; animation-delay:.6s;"></i><i style="height:45%; animation-delay:.7s;"></i><i style="height:65%; animation-delay:.8s;"></i><i style="height:35%; animation-delay:.9s;"></i><i style="height:85%; animation-delay:1s;"></i><i style="height:50%; animation-delay:1.1s;"></i><i style="height:30%; animation-delay:1.2s;"></i><i style="height:70%; animation-delay:1.3s;"></i><i style="height:40%; animation-delay:1.4s;"></i><i style="height:60%; animation-delay:1.5s;"></i><i style="height:90%; animation-delay:1.6s;"></i><i style="height:35%; animation-delay:1.7s;"></i><i style="height:55%; animation-delay:1.8s;"></i><i style="height:75%; animation-delay:1.9s;"></i>
+      </div>
+    </div>
+
+    <!-- 01 METODO -->
+    <section id="metodo">
+      <div class="sec-head"><span class="code mono">01</span><h2>Marco metodológico general</h2></div>
+      <p class="sec-sub">Las cuatro capas se repiten en cada línea de investigación. Es la estructura base para operar como un equipo con presupuesto mínimo.</p>
+
+      <div class="layers">
+        <div class="layer">
+          <span class="lnum mono">CAPA 1</span>
+          <h3>Datos secundarios</h3>
+          <p>Siempre se empieza aquí. INEGI, IPLANEG, portales de transparencia municipal, Secretaría de Finanzas. Da contexto gratis y respaldo institucional al producto final.</p>
+        </div>
+        <div class="layer">
+          <span class="lnum mono">CAPA 2</span>
+          <h3>Encuesta CAWI</h3>
+          <p>Cuestionario digital distribuido por WhatsApp, redes sociales o correo. KoboToolbox para diseño y captura. No requiere encuestadores en calle.</p>
+        </div>
+        <div class="layer">
+          <span class="lnum mono">CAPA 3</span>
+          <h3>Informantes clave</h3>
+          <p>3 a 5 entrevistas cortas a funcionarios, líderes vecinales o comerciantes. Da contexto que respalda la credibilidad del reporte.</p>
+        </div>
+        <div class="layer">
+          <span class="lnum mono">CAPA 4</span>
+          <h3>Reporte ejecutivo</h3>
+          <p>Máximo 20 páginas. Portada, hallazgos en bullets, gráficas simples, mapa si aplica, y una sección de implicaciones para política pública o campaña.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 TEMAS -->
+    <section id="temas">
+      <div class="sec-head"><span class="code mono">02</span><h2>Líneas de investigación</h2></div>
+      <p class="sec-sub">Cada ficha sigue la misma estructura: enfoque, fuentes secundarias, diseño de encuesta, diferenciador, comprador principal y condición de ejecución. Los indicadores de facilidad y demanda son una lectura rápida de prioridad.</p>
+
+      <div class="toolbar-local">
+        <div class="density-toggle" role="group" aria-label="Densidad de consulta">
+          <button id="btnCompacto" class="active" aria-pressed="true">Compacto</button>
+          <button id="btnDetallado" aria-pressed="false">Detallado</button>
+          <button id="btnExpandirTodo">Expandir todo</button>
+          <button id="btnColapsarTodo">Colapsar todo</button>
+        </div>
+        <div class="count-readout mono" id="countReadout">7 de 7 líneas visibles</div>
+      </div>
+
+      <div class="ficha-grid" id="fichaGrid">
+
+        <!-- FICHA 1 -->
+        <details class="ficha" data-comprador="partido institucional" data-forced="0">
+          <summary>
+            <span class="f-code mono">MR·01</span>
+            <span class="f-title-wrap">
+              <h4>Mejora regulatoria y burocracia municipal</h4>
+              <span class="f-enfoque">Qué tan fácil es para un ciudadano o comerciante hacer trámites con el ayuntamiento.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 4 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 4 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">Institucional</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>Registro Estatal de Trámites y Servicios (COMERI), catálogo municipal de trámites, informes de la contraloría municipal.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>A quienes hicieron un trámite en los últimos 12 meses (predial, apertura de negocio, licencia de construcción). Mide número de visitas, tiempo de espera, claridad de requisitos, corrupción percibida y satisfacción general, segmentado por tipo de trámite.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Cruzar resultados por colonia o zona. No es "60% insatisfecho": es "en la colonia X el problema es el tiempo de espera; en la Y es la falta de información".</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>Candidatos a la alcaldía y coordinaciones de campaña municipal. Como cliente institucional: la propia COMERI o la contraloría municipal.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Requiere acceso a personas que hayan tramitado algo recientemente; conviene apoyarse en grupos vecinales o de comerciantes para distribuir la encuesta.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 2 -->
+        <details class="ficha" data-comprador="partido" data-forced="0">
+          <summary>
+            <span class="f-code mono">SP·02</span>
+            <span class="f-title-wrap">
+              <h4>Satisfacción de servicios públicos primarios</h4>
+              <span class="f-enfoque">Alumbrado, basura, bacheo y parques: lo que el Art. 115 obliga a proveer.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 5 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 5 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>Índice de Calidad del Entorno del IPLANEG, descargable por AGEB desde su Geoportal. Da una línea base sin levantar una sola encuesta.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Evaluación de alumbrado, recolección de basura, bacheo y parques, más una pregunta abierta: "el problema más urgente en tu colonia". Esa pregunta es la que más vale para un candidato.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>El cruce entre tu encuesta y el índice oficial del IPLANEG revela si la percepción ciudadana coincide o no con el dato institucional. Esa tensión suele ser el hallazgo más interesante del reporte.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>Candidatos a presidencia municipal y coordinaciones de campaña territorial.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Es el tema más fácil de encuestar y de vender: buen punto de entrada para construir portafolio.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 3 -->
+        <details class="ficha" data-comprador="partido institucional" data-forced="0">
+          <summary>
+            <span class="f-code mono">DU·03</span>
+            <span class="f-title-wrap">
+              <h4>Desarrollo urbano, movilidad y espacio público</h4>
+              <span class="f-enfoque">Tráfico, transporte público, áreas verdes y crecimiento desordenado.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 4 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">Institucional</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>Programa Municipal de Desarrollo Urbano y Ordenamiento Ecológico Territorial (PMDUOET) vigente, datos de rutas de la Dirección de Movilidad, censos de población del INEGI.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Tiempo de traslado al trabajo o escuela, modo de transporte, percepción de seguridad vial, acceso a áreas verdes, calidad de banquetas y ciclovías donde existan.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Segmentar por tipo de usuario: automovilista, usuario de transporte público, peatón, ciclista. Cada perfil tiene necesidades distintas y cada partido puede identificar cuál es su base.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>IMPLAN municipal como estudio de planeación (no solo electoral), candidatos, partidos con plataforma de movilidad.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Doble mercado: planeación urbana e interés electoral, lo que amplía compradores potenciales.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 4 -->
+        <details class="ficha" data-comprador="partido ine" data-forced="0">
+          <summary>
+            <span class="f-code mono">MG·04</span>
+            <span class="f-title-wrap">
+              <h4>Migración y remesas</h4>
+              <span class="f-enfoque">Impacto de la migración histórica y de las deportaciones recientes en hogares guanajuatenses.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 5 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">INE / OPLE</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>Índice de Intensidad Migratoria del INEGI por municipio, series históricas de remesas por estado (BBVA Research, Banco de México).</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Focalizada en municipios de migración histórica alta: Dolores Hidalgo, San Felipe, Pénjamo, Ocampo. Preguntas sobre familiares en EUA, dependencia de remesas, deportaciones en el último año e impacto en el ingreso del hogar.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Vigencia inmediata: las deportaciones masivas del periodo 2025-2026 hacen este diagnóstico urgente y poco cubierto a nivel municipal.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>Partidos con representación en distritos migratorios, INE u OPLE (participación de personas mexicanas en el exterior), eventualmente medios locales.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Sensibilidad emocional media: son experiencias familiares dolorosas. Garantizar anonimato y trato cuidadoso en el levantamiento.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 5 -->
+        <details class="ficha" data-comprador="partido institucional" data-forced="0">
+          <summary>
+            <span class="f-code mono">EC·05</span>
+            <span class="f-title-wrap">
+              <h4>Economía local, empleo e informalidad</h4>
+              <span class="f-enfoque">La brecha entre el Bajío industrial y el trabajador informal local.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 2 de 5"><i class="lit"></i><i class="lit"></i><i></i><i></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 4 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">Institucional</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>ENOE del INEGI (datos trimestrales estatales y algunos municipales), asegurados del IMSS por municipio como proxy de informalidad.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Sector de empleo (formal/informal), prestaciones, percepción de estabilidad, si ha buscado empleo en parques industriales y por qué sí o no, y si el crecimiento industrial ha mejorado su vida.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Documenta la contradicción entre el discurso de "Guanajuato potencia industrial" y la realidad del trabajador informal: hallazgo políticamente sensible y muy útil para oposición.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>Partidos de oposición, candidatos a diputaciones locales y federales, cámaras empresariales si se amplía el enfoque.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Requiere más trabajo analítico que las demás líneas. Sensibilidad política media: cuidar el lenguaje del reporte para mantenerlo descriptivo, no acusatorio.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 6 -->
+        <details class="ficha" data-comprador="partido institucional" data-forced="0">
+          <summary>
+            <span class="f-code mono">JV·06</span>
+            <span class="f-title-wrap">
+              <h4>Juventud: NINIs, deserción escolar y oportunidades</h4>
+              <span class="f-enfoque">Jóvenes de 15 a 29 años fuera del sistema educativo y laboral, por municipio.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">Institucional</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>Estadísticas de matrícula y deserción de la SEG (Secretaría de Educación de Guanajuato), datos de población NINI por municipio del Censo 2020 del INEGI.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Focalizada en municipios semiurbanos y rurales (Pénjamo, Salvatierra, Valle de Santiago). Por qué dejaron de estudiar, tipo de trabajo que tienen o buscan, expectativas del gobierno, intención de migrar.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Conectar el tema NINI con migración: en zonas rurales, migrar suele ser la principal "salida" para un joven sin opciones. Es un hallazgo que se vende solo.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>Candidatos a diputaciones locales, coordinaciones juveniles de partidos, INAEJ (Instituto de la Juventud de Guanajuato) como cliente institucional no electoral.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Sin condiciones especiales más allá del trabajo de focalización territorial.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- FICHA 7 -->
+        <details class="ficha" data-comprador="partido institucional" data-forced="0">
+          <summary>
+            <span class="f-code mono">AG·07</span>
+            <span class="f-title-wrap">
+              <h4>Agua y recursos naturales</h4>
+              <span class="f-enfoque">Percepción ciudadana sobre disponibilidad, calidad y gestión del agua.</span>
+              <span class="meters">
+                <span class="meter"><span class="meter-label mono">Facilidad</span><span class="meter-bars" role="img" aria-label="Facilidad de ejecución: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+                <span class="meter"><span class="meter-label mono">Demanda</span><span class="meter-bars demanda" role="img" aria-label="Potencial de venta: 3 de 5"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i></span></span>
+              </span>
+            </span>
+            <span class="f-tags"><span class="tag">Partido</span><span class="tag">Institucional</span></span>
+            <span class="chevron" aria-hidden="true">▸</span>
+          </summary>
+          <div class="f-body">
+            <div class="f-block">
+              <h5>Fuentes secundarias</h5>
+              <p>CONAGUA (estado de acuíferos; el Valle de León está en veda), informes de organismos operadores municipales (p. ej. SAPASLEO y equivalentes).</p>
+            </div>
+            <div class="f-block">
+              <h5>Diseño de encuesta</h5>
+              <p>Frecuencia de desabasto, calidad percibida del agua de la llave, gasto en agua embotellada, conocimiento de la situación del acuífero, disposición a pagar más por mejor servicio.</p>
+            </div>
+            <div class="f-block">
+              <h5>Diferenciador</h5>
+              <p>Doble mercado: electoral (candidatos con agenda ambiental) y de planeación institucional (IMPLAN, CONAGUA, organismos operadores). Es el tema con mayor potencial fuera del ciclo electoral.</p>
+            </div>
+            <div class="f-block">
+              <h5>Comprador principal</h5>
+              <p>IMPLAN municipal, candidatos con plataforma ambiental, organismos operadores de agua, OSCs ambientales con financiamiento propio.</p>
+            </div>
+            <div class="f-block full f-risk">
+              <h5>Condición de ejecución</h5>
+              <p>Sin condiciones especiales más allá del acceso a informes de organismos operadores.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+      <p class="count-readout mono no-results" id="noResults">Sin coincidencias. Ajusta la búsqueda o el filtro.</p>
+    </section>
+
+    <!-- 03 COMPARATIVO -->
+    <section id="comparativo">
+      <div class="sec-head"><span class="code mono">03</span><h2>INE / OPLE vs. partidos políticos</h2></div>
+      <p class="sec-sub">El mismo estudio se vende distinto según el comprador. Conviene preparar dos versiones del mismo producto.</p>
+
+      <table class="ledger">
+        <thead>
+          <tr><th>Criterio</th><th>INE / OPLE</th><th>Partido político</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Qué busca</td><td>Participación ciudadana, cultura democrática, inclusión</td><td>Diagnóstico de territorio, intención de voto, áreas de oportunidad</td></tr>
+          <tr><td>Formato preferido</td><td>Estudio riguroso, metodología documentada</td><td>Reporte ejecutivo, mapas de calor, bullets</td></tr>
+          <tr><td>Proceso de compra</td><td>Licitación pública vía CompraINE — más lento, requiere registro de proveedor</td><td>Negociación directa con Comités Directivos Estatales o coordinaciones de campaña — más ágil</td></tr>
+          <tr><td>Ventaja para ti</td><td>Reconocimiento institucional</td><td>Velocidad y flexibilidad comercial</td></tr>
+          <tr><td>Registro previo necesario</td><td>Registro Único de Proveedores y Contratistas (CompraINE)</td><td>Registro Nacional de Proveedores (RNP) — ver sección 04</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 04 LEGAL -->
+    <section id="legal">
+      <div class="sec-head"><span class="code mono">04</span><h2>Marco legal y condiciones a verificar</h2></div>
+      <p class="sec-sub">Puntos de control antes de cobrar por un estudio. No sustituye asesoría legal o fiscal directa — úsalo como checklist de qué preguntar y dónde verificar.</p>
+
+      <div class="legal-list">
+
+        <details class="legal">
+          <summary><h4>Si vas a difundir o publicar resultados de encuestas electorales</h4><span class="tag">Normatividad INE</span></summary>
+          <div class="legal-body">
+            <p>Aplica cuando los resultados de una encuesta o sondeo sobre preferencias electorales se hacen públicos por cualquier medio (no aplica del mismo modo a un estudio privado entregado solo al cliente, aunque documentar bien la metodología siempre da seriedad profesional).</p>
+            <ul>
+              <li>Quien publique o difunda una encuesta durante el proceso electoral debe entregar copia del estudio completo a la Secretaría Ejecutiva del INE o del OPLE correspondiente.</li>
+              <li>Queda prohibido publicar o difundir resultados de preferencia electoral en los días inmediatamente previos a la jornada electoral y hasta el cierre oficial de casillas.</li>
+              <li>Quien difunda encuestas debe presentar un informe sobre los recursos aplicados en su realización.</li>
+              <li>Si se trata de encuestas de salida o conteos rápidos el día de la jornada, se requiere dar aviso previo a la autoridad electoral y obtener una carta de acreditación.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="legal">
+          <summary><h4>Si vendes a un partido político</h4><span class="tag">Registro Nacional de Proveedores</span></summary>
+          <div class="legal-body">
+            <p>Los partidos son sujetos obligados de fiscalización ante el INE: todo lo que gastan debe poder rastrearse.</p>
+            <ul>
+              <li>Para que el gasto del partido contigo sea reconocido en su fiscalización, conviene estar inscrito en el Registro Nacional de Proveedores (RNP) del INE.</li>
+              <li>El RNP tiene una ventana de refrendo anual (históricamente en febrero); sin refrendo, el registro se cancela.</li>
+              <li>Si no estás registrado, el partido puede tener observaciones de fiscalización por ese gasto, lo que complica tu cobro o genera fricción en el pago.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="legal">
+          <summary><h4>Si vendes directamente al INE</h4><span class="tag">CompraINE</span></summary>
+          <div class="legal-body">
+            <p>Aplica cuando el comprador es el propio Instituto (por ejemplo, un estudio de participación ciudadana), no un partido.</p>
+            <ul>
+              <li>Requiere inscripción en el Registro Único de Proveedores y Contratistas vía el sistema CompraINE.</li>
+              <li>Documentación: ficha de registro con información administrativa, legal y comercial, documentos legales escaneados, y Firma Electrónica Avanzada (e.firma / FIEL).</li>
+              <li>Las compras por debajo de un monto mínimo (actualizado cada año, referencia histórica de unos $24,000 MXN con IVA) pueden no requerir el proceso formal completo de licitación.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="legal">
+          <summary><h4>Protección de datos de las personas encuestadas</h4><span class="tag">LFPDPPP</span></summary>
+          <div class="legal-body">
+            <p>Aplica siempre, sin importar el comprador.</p>
+            <ul>
+              <li>Incluir un aviso de privacidad simplificado en cada encuesta, explicando para qué se usarán los datos.</li>
+              <li>Anonimizar las bases antes de entregarlas al cliente: nombre y contacto fuera del archivo que se comparte, salvo que la persona haya dado consentimiento explícito.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="legal">
+          <summary><h4>Facturación y fiscalización del gasto del cliente</h4><span class="tag">RESICO / facturación</span></summary>
+          <div class="legal-body">
+            <p>Protege tanto al cliente como a ti.</p>
+            <ul>
+              <li>Todo cobro a un partido debe facturarse formalmente; como persona física con actividad empresarial (régimen RESICO u otro aplicable), esto es indispensable para que el gasto sea reconocible en la fiscalización del partido.</li>
+              <li>Cobros informales o en efectivo sin factura son un riesgo doble: para el partido, una observación de fiscalización; para ti, ningún respaldo contractual si algo no se paga.</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <p class="legal-caveat">Este checklist resume normatividad pública del INE y disposiciones generales; los montos, ventanas de registro y criterios específicos se actualizan cada ciclo electoral. Verifica vigencia directamente en ine.mx y con un contador antes de firmar cualquier contrato.</p>
+    </section>
+
+    <!-- 05 RUTA -->
+    <section id="ruta">
+      <div class="sec-head"><span class="code mono">05</span><h2>Ruta crítica recomendada</h2></div>
+      <p class="sec-sub">Orden sugerido para construir portafolio y flujo de caja desde cero, operando solo.</p>
+
+      <div class="route">
+        <div class="route-step">
+          <div class="route-num mono">1</div>
+          <div><h4>Servicios públicos + movilidad <span class="tag mono">SP·02 · DU·03</span></h4>
+          <p>Los más fáciles de encuestar y de vender. Generan tu primer portafolio demostrable sin requerir relaciones políticas previas.</p></div>
+        </div>
+        <div class="route-step">
+          <div class="route-num mono">2</div>
+          <div><h4>Migración <span class="tag mono">MG·04</span></h4>
+          <p>El contexto 2025-2026 da relevancia inmediata. Guanajuato es terreno natural por su historia migratoria.</p></div>
+        </div>
+        <div class="route-step">
+          <div class="route-num mono">3</div>
+          <div><h4>Economía e informalidad <span class="tag mono">EC·05</span></h4>
+          <p>Requiere más trabajo analítico, pero el argumento político — la brecha entre discurso industrial y realidad informal — es de los más potentes del catálogo.</p></div>
+        </div>
+        <div class="route-step">
+          <div class="route-num mono">4</div>
+          <div><h4>Mejora regulatoria, juventud y agua <span class="tag mono">MR·01 · JV·06 · AG·07</span></h4>
+          <p>Se incorporan conforme se consolidan metodología, contactos y flujo de clientes recurrentes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 RECURSOS -->
+    <section id="recursos">
+      <div class="sec-head"><span class="code mono">06</span><h2>Recursos y herramientas</h2></div>
+      <p class="sec-sub">Lo necesario para operar sin equipo de campo ni licencias costosas.</p>
+
+      <div class="resources">
+        <div class="resource"><span class="rname mono">KoboToolbox</span><p>Diseño y captura de encuestas CAWI, gratuito, exporta directo a Excel sin captura manual.</p></div>
+        <div class="resource"><span class="rname mono">Excel / XLSTAT</span><p>Estadística descriptiva suficiente para reportes de percepción: porcentajes, gráficas, cruces por edad y colonia.</p></div>
+        <div class="resource"><span class="rname mono">Geoportal IPLANEG</span><p>Mapas y datos de marginación y calidad del entorno por localidad y manzana en Guanajuato.</p></div>
+        <div class="resource"><span class="rname mono">INEGI · ENOE / Censo</span><p>Empleo, informalidad, intensidad migratoria y población NINI por municipio.</p></div>
+        <div class="resource"><span class="rname mono">CONAGUA</span><p>Estado de acuíferos, vedas y disponibilidad de agua por región.</p></div>
+        <div class="resource"><span class="rname mono">CompraINE</span><p>Sistema de registro y licitación para vender estudios directamente al INE.</p></div>
+        <div class="resource"><span class="rname mono">Registro Nacional de Proveedores</span><p>Registro necesario para que tu contrato con un partido sea reconocido en su fiscalización.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      Material de trabajo personal · no constituye asesoría legal ni fiscal · verificar vigencia de trámites, montos y normatividad directamente con INE/OPLE antes de proceder.
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+  const fichas = Array.from(document.querySelectorAll('details.ficha'));
+  const countReadout = document.getElementById('countReadout');
+  const noResults = document.getElementById('noResults');
+
+  let activeFilter = 'todos';
+  let query = '';
+
+  function applyFilters(){
+    let visible = 0;
+    fichas.forEach(f => {
+      const matchesFilter = activeFilter === 'todos' || (f.dataset.comprador || '').includes(activeFilter);
+      const text = norm(f.textContent);
+      const matchesQuery = query === '' || text.includes(query);
+      const show = matchesFilter && matchesQuery;
+      f.classList.toggle('hidden-by-filter', !show);
+      if(show){
+        visible++;
+        if(query !== ''){
+          f.setAttribute('data-forced','1');
+          f.open = true;
+        } else {
+          f.setAttribute('data-forced','0');
+        }
+      }
+    });
+    countReadout.textContent = visible + ' de ' + fichas.length + ' líneas visibles';
+    noResults.classList.toggle('is-visible', visible === 0);
+  }
+
+  function wireSearch(input){
+    input.addEventListener('input', () => {
+      query = norm(input.value.trim());
+      applyFilters();
+    });
+  }
+  wireSearch(document.getElementById('searchInput'));
+  wireSearch(document.getElementById('searchInputMobile'));
+
+  function wirePills(container){
+    container.querySelectorAll('.pill').forEach(p => {
+      p.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        document.querySelectorAll('.pill[data-filter="'+p.dataset.filter+'"]').forEach(x => x.classList.add('active'));
+        activeFilter = p.dataset.filter;
+        applyFilters();
+      });
+    });
+  }
+  wirePills(document.getElementById('filterPills'));
+  wirePills(document.getElementById('filterPillsMobile'));
+
+  // density toggle
+  const btnCompacto = document.getElementById('btnCompacto');
+  const btnDetallado = document.getElementById('btnDetallado');
+  const btnExpandirTodo = document.getElementById('btnExpandirTodo');
+  const btnColapsarTodo = document.getElementById('btnColapsarTodo');
+
+  function setDensity(compact){
+    document.body.classList.toggle('compacto', compact);
+    btnCompacto.classList.toggle('active', compact);
+    btnDetallado.classList.toggle('active', !compact);
+    btnCompacto.setAttribute('aria-pressed', String(compact));
+    btnDetallado.setAttribute('aria-pressed', String(!compact));
+  }
+
+  btnCompacto.addEventListener('click', () => {
+    setDensity(true);
+    fichas.forEach(f => { if(f.dataset.forced !== '1') f.open = false; });
+  });
+  btnDetallado.addEventListener('click', () => setDensity(false));
+  btnExpandirTodo.addEventListener('click', () => {
+    setDensity(false);
+    fichas.forEach(f => f.open = true);
+  });
+  btnColapsarTodo.addEventListener('click', () => {
+    fichas.forEach(f => { f.open = false; f.setAttribute('data-forced','0'); });
+  });
+
+  // scrollspy + hash deep-link
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const sections = Array.from(document.querySelectorAll('main section'));
+
+  function setActiveLink(id){
+    tocLinks.forEach(l => l.removeAttribute('aria-current'));
+    document.querySelectorAll('nav.toc a[href="#'+id+'"]').forEach(l => l.setAttribute('aria-current','true'));
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) setActiveLink(entry.target.id); });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+
+  if(window.location.hash){
+    const target = document.querySelector(window.location.hash);
+    if(target){
+      setActiveLink(target.id);
+      requestAnimationFrame(() => target.scrollIntoView());
+    }
+  }
+
+  applyFilters();
+})();
+</script>
+
+</body>
+</html>
